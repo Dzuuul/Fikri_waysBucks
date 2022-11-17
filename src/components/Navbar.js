@@ -1,12 +1,16 @@
 import React from 'react';
 import {Button, Container, Navbar, Nav, Stack} from 'react-bootstrap';
-import group from './images/group.png';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import group from './assets/images/group.png';
+import Login from './Login';
+import Register from './Register';
+import css from './assets/css/Global.module.css';
 
 const NavbarBucks = () => {
   const [modalRegisterShow, setModalRegisterShow] = React.useState(false);
   const [modalLoginShow, setModalLoginShow] = React.useState(false);
+  const [showStatus, setStatus] = React.useState(false);
+
+
   
   return (
     <Navbar expand="lg">
@@ -19,11 +23,15 @@ const NavbarBucks = () => {
             navbarScroll
           >
           </Nav>
-          <Stack direction="horizontal" gap={3} className="mx-5">
-            <Button variant="outline-danger" className='px-3' onClick={() => setModalRegisterShow(true)}>Register</Button>
+          <Stack direction="horizontal" gap={3} className="mx-5" style={{ fontFamily: "Poppins"}}>
+            <div className='px-1'>
+            <Button variant='outline-danger' className={css.btnOD} onClick={() => setModalRegisterShow(true)}>Register</Button>
             <Register show={modalRegisterShow} onHide={() => setModalRegisterShow(false)}/>
-            <Button variant="danger" className='px-4' onClick={() => setModalLoginShow(true)}>Login</Button>
+            </div>
+            <div>
+            <Button variant='danger' className={css.btnD} onClick={() => setModalLoginShow(true)}>Login</Button>
             <Login show={modalLoginShow} onHide={() => setModalLoginShow(false)}/>
+            </div>
           </Stack>
         </Navbar.Collapse>
       </Container>

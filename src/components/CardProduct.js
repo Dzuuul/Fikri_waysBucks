@@ -1,35 +1,17 @@
 import React from "react";
-import jumbotronRectangle from '../images/jumbotronRectangle.png'
-import jumboImg from '../images/jumboImg.png'
-import { Stack, Card } from "react-bootstrap";
-import cssModules from "../Global.module.css"
+import { Card, Stack } from "react-bootstrap";
+import cssModules from "../components/assets/css/Global.module.css"
 
 //product image
-import p1 from '../images/product1.png';
-import p2 from '../images/product2.png';
-import p3 from '../images/product3.png';
-import p4 from '../images/product4.png';
+import p1 from './assets/images/product1.png';
+import p2 from './assets/images/product2.png';
+import p3 from './assets/images/product3.png';
+import p4 from './assets/images/product4.png';
 
-const Home = () => {
+
+const CardProduct = () => {
     return (
-    <>
-    <Stack direction="horizontal" gap={3}>
-        <div className={cssModules.jumboContainer}>
-            <div className={cssModules.jumboRect}>
-                <p className={cssModules.jumboTitle}>WAYSBUCKS</p>
-                <p className={cssModules.jumboSubTitle}>Things are changing, but we're still here for you</p>
-                <p className={cssModules.jumboDescription}>We have temporarily closed our in-store cafes, but select grocery and drive-thru locations remaining open. Waysbucks Drivers is also available<br/><br/>Let's Order...</p>
-                <img src={jumbotronRectangle} alt="" />
-            </div>
-            <div className={cssModules.jumboImg}>
-                <img src={jumboImg} alt="" />
-            </div>
-        </div>
-    </Stack>
-    <div className={cssModules.jumboContainer} style={{height: "50px"}}>
-        <p className={cssModules.h2Bucks} >Let's Order</p>
-    </div>
-    <Stack direction="horizontal" gap={3} className='' style={{margin: "50px auto 20px", width: "1072px", height: "392px"}} >
+        <Stack direction="horizontal" gap={3} className='' style={{margin: "50px auto 20px", width: "1072px", height: "392px"}} >
 
         {/* card1 */}
     <Card style={{ width: '18rem', borderRadius: '13px', background: "#F7DADA", border: "none" }}>
@@ -75,9 +57,7 @@ const Home = () => {
       </Card.Body>
     </Card>
     </Stack>
-    </>
-
     )
 }
 
-export default Home
+export default CardProduct
