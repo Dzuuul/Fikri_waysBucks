@@ -26,11 +26,11 @@ const NavbarBucks = () => {
           <Stack direction="horizontal" gap={3} className="mx-5" style={{ fontFamily: "Poppins"}}>
             <div className='px-1'>
             <Button variant='outline-danger' className={css.btnOD} onClick={() => setModalRegisterShow(true)}>Register</Button>
-            <Register show={modalRegisterShow} onHide={() => setModalRegisterShow(false)}/>
+            <Register show={modalRegisterShow} Hide={() => setModalRegisterShow(false)} setModalLoginShow={setModalLoginShow} setModalRegisterShow={setModalRegisterShow}/>
             </div>
             <div>
             <Button variant='danger' className={css.btnD} onClick={() => setModalLoginShow(true)}>Login</Button>
-            <Login show={modalLoginShow} onHide={() => setModalLoginShow(false)}/>
+            <Login show={modalLoginShow} Hide={()=> setModalLoginShow(false)} setModalLoginShow={setModalLoginShow} setModalRegisterShow={setModalRegisterShow} />
             </div>
           </Stack>
         </Navbar.Collapse>
