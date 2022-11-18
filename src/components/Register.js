@@ -28,7 +28,6 @@ const Register = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
       users.push(userData)
       localStorage.setItem("DATA_USER", JSON.stringify(users))
     }
-      console.log(users.length)
       
 
       setModalRegisterShow(false)

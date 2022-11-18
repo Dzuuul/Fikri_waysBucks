@@ -13,6 +13,7 @@ const NavbarBucks = () => {
   const [modalRegisterShow, setModalRegisterShow] = React.useState(false);
   const [modalLoginShow, setModalLoginShow] = React.useState(false);
 
+  const loginData = JSON.parse(localStorage.getItem("LOGIN_STATUS"))
 
   
   return (
@@ -27,8 +28,8 @@ const NavbarBucks = () => {
           >
           </Nav>
           <Stack direction="horizontal" gap={3} className="mx-5" style={{ fontFamily: "Poppins"}}>
-          {}
-          {/* logout */}
+          {loginData === null? (
+            <>
             <div className='px-1'>
             <Button variant='outline-danger' className={css.btnOD} onClick={() => setModalRegisterShow(true)}>Register</Button>
             <Register show={modalRegisterShow} Hide={() => setModalRegisterShow(false)} setModalLoginShow={setModalLoginShow} setModalRegisterShow={setModalRegisterShow}/>
@@ -37,14 +38,18 @@ const NavbarBucks = () => {
             <Button variant='danger' className={css.btnD} onClick={() => setModalLoginShow(true)}>Login</Button>
             <Login show={modalLoginShow} Hide={()=> setModalLoginShow(false)} setModalLoginShow={setModalLoginShow} setModalRegisterShow={setModalRegisterShow} />
             </div>
-      
-          {/* login */}
+            </>
+          ) : (
+            <>
             <div className='px-3'>
             <Image src={chartIcon}/>
             </div>
             <div>
             <Image src={profileIcon}/>
             </div>
+            </>
+            )
+          }
 
           </Stack>
         </Navbar.Collapse>

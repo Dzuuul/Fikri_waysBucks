@@ -13,7 +13,7 @@ const Login = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
   })
   
   let storage = JSON.parse(localStorage.getItem("DATA_USER"))
-  
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
     storage.forEach(element => {
@@ -32,12 +32,12 @@ const Login = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
     <>
       <Modal
       show={show} onHide={Hide}
-      aria-labelledby="contained-modal-title-vcenter" centered className='position-absolute top-50 start-50 translate-middle p-4'  style={{width: "340px"}}
+      aria-labelledby="contained-modal-title-vcenter" centered className='position-absolute top-50 start-50 translate-middle p-4'  style={{width: "360px"}}
     >
     <Form onSubmit={handleOnSubmit}>
       <Card className='p-4' style={{width: "320px"}} >
           <p className={cssModules.h2Bucks}>Login</p>
-          
+
           <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control className='mb-3' type="email" placeholder="Email" onChange={(e)=>{setState({...userLogin, email : e.target.value})}} />
           </Form.Group>
