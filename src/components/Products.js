@@ -6,28 +6,28 @@ import p4 from './assets/images/product4.png';
 
 const Products = [
     {
-      id : 1,
+      id : 0,
       image : p1,
       price : 27000,
       title : "Ice Coffee Palm Sugar"
     },
     {
-      id : 2,
+      id : 1,
       image : p2,
       price : 31000,
       title : "Ice Coffee Green Tea"
     },
     {
-      id : 3,
+      id : 2,
       image : p3,
       price : 29000,
-      title : "Ice Coffee Palm Sugar"
+      title : "Hanami Latte"
     },
     {
-      id : 4,
+      id : 3,
       image : p4,
       price : 28000,
-      title : "Ice Coffee Palm Sugar"
+      title : "Clepon Coffee"
     },
   ]
 

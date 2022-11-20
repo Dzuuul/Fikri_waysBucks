@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import { Button, Form, Modal, Card } from 'react-bootstrap'
 import cssModules from './assets/css/Global.module.css'
-import { Link } from 'react-router-dom'
 
-const Login = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
+const Login = ({show,Hide,setModalRegisterShow,setModalLoginShow}) => {
 
   const users = []
   
@@ -12,14 +11,14 @@ const Login = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
     password: "",
   })
   
-  let storage = JSON.parse(localStorage.getItem("DATA_USER"))
+  let storage = JSON.parse(localStorage.getItem("REGISTER_DATA"))
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     storage.forEach(element => {
       if (userLogin.email === element.email && userLogin.password === element.password ) {
         users.push(userLogin)
-        localStorage.setItem("LOGIN_STATUS", JSON.stringify(users))
+        localStorage.setItem("LOGIN_DATA", JSON.stringify(users))
         setModalLoginShow(false)
       } else {
         console.log(users)

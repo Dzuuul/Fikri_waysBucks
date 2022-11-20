@@ -1,19 +1,30 @@
 import React from 'react';
-import {Button, Container, Navbar, Nav, Stack, Image} from 'react-bootstrap';
+import {Button, Container, Navbar, Nav, Stack, Image, OverlayTrigger, Popover} from 'react-bootstrap';
 import group from './assets/images/group.png';
 import Login from './Login';
 import Register from './Register';
 import css from './assets/css/Global.module.css';
+import { Link } from 'react-router-dom';
+
 
 // images
 import profileIcon from './assets/images/usericon.png'
 import chartIcon from './assets/images/chart.png'
 
+//popover icon
+import profileIconPop from './assets/images/profileDropdownIcon.png'
+import logoutIcon from './assets/images/logoutIcon.png'
+
 const NavbarBucks = () => {
   const [modalRegisterShow, setModalRegisterShow] = React.useState(false);
   const [modalLoginShow, setModalLoginShow] = React.useState(false);
 
-  const loginData = JSON.parse(localStorage.getItem("LOGIN_STATUS"))
+  const loginData = JSON.parse(localStorage.getItem("LOGIN_DATA"))
+
+  const Logout = () => {
+    localStorage.removeItem("LOGIN_DATA")
+    setTimeout(window.location.reload(), 500)
+  }
 
   
   return (
@@ -24,11 +35,10 @@ const NavbarBucks = () => {
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
+            navbarScroll>
           </Nav>
           <Stack direction="horizontal" gap={3} className="mx-5" style={{ fontFamily: "Poppins"}}>
-          {loginData === null? (
+          {loginData === null ? (
             <>
             <div className='px-1'>
             <Button variant='outline-danger' className={css.btnOD} onClick={() => setModalRegisterShow(true)}>Register</Button>
@@ -42,10 +52,32 @@ const NavbarBucks = () => {
           ) : (
             <>
             <div className='px-3'>
+            <Link to="/cart">
             <Image src={chartIcon}/>
+            </Link>
             </div>
             <div>
-            <Image src={profileIcon}/>
+            <OverlayTrigger
+              trigger="click"
+              key='bottom'
+              placement='bottom-end'
+              overlay={
+              <Popover id={`popover-positioned-bottom`}>
+                  <Popover.Body className={css.poppins}>
+                  <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
+                  <Image src={profileIconPop} /> <Link to="/profile" style={{textDecoration: "none", color: "black"}} > <span className='fw-bold ps-3 fs-5'> Profile </span></Link>
+                  </div>
+                  <div className='position-relative'>
+                  <hr/>
+                  </div>
+                  <div className='pt-2 pb-2 ps-2 pe-5'>
+                  <Image src={logoutIcon} /> <span className='fw-bold ps-3 fs-5 btn' onClick={Logout}> Logout </span>
+                  </div>
+                  </Popover.Body>
+                  </Popover>
+                  }>
+              <Image className='btn' src={profileIcon} style={{border: "none"}} />
+            </OverlayTrigger>
             </div>
             </>
             )

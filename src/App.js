@@ -1,16 +1,16 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarBucks from "./components/Navbar";
-// import Register from "./components/pages/Register";
-// import Login from "./components/pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Cart from "./pages/Cart";
+import DetailProduct from "./pages/DetailProduct";
+import Income from "./pages/IncomeTransaction";
+import AddToping from "./pages/AddTopping";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
-  // const [currentForm, setCurrenform] = useState('login')
-   
 
   return (
     <Router>
@@ -21,8 +21,11 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/profile" element={<Profile />} />
-        {/* <Route exact path="/" element={<Register />} /> */}
-        {/* <Route exact path="/login" element={<Login />} /> */}
+        <Route exact path="/product/:title/:id/" element={<DetailProduct />} />
+        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/income" element={<Income />} />
+        <Route exact path="/add-topping" element={<AddToping />} />
+        <Route exact path="/add-product" element={<AddProduct />} />
       </Routes>
     </Router>
   );

@@ -11,7 +11,7 @@ const Register = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
     fullname: ""
   })
 
-  const addUserData = JSON.parse(localStorage.getItem("DATA_USER"))
+  const addUserData = JSON.parse(localStorage.getItem("REGISTER_DATA"))
 
 
   const handleOnSubmit = (e) => {
@@ -19,14 +19,14 @@ const Register = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
     
     if (addUserData === null) {
       users.push(userData)
-      localStorage.setItem("DATA_USER", JSON.stringify(users))
+      localStorage.setItem("REGISTER_DATA", JSON.stringify(users))
 
     } else {
       addUserData.forEach(element => {
         users.push(element)
       })
       users.push(userData)
-      localStorage.setItem("DATA_USER", JSON.stringify(users))
+      localStorage.setItem("REGISTER_DATA", JSON.stringify(users))
     }
       
 
