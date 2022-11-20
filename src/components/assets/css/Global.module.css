@@ -29,6 +29,16 @@
     background-color: #ac4949;
 }
 
+.btnNoSize {
+    background-color: #BD0707;
+    color: white;
+    transition: 0.3s;
+}
+
+.btnNoSize:hover {
+    background-color: #ac4949;
+}
+
 .btnLink {
     color: blue;
     padding: 0;

@@ -48,10 +48,12 @@ const style = {
 function AddProduct() {
     const products = []
     const [DataProduct, setState] = useState({
-      nameProduct: "",
-      price: "",
-      imgProduct: "",
+      id: 0,
+      title: "",
+      price: 0,
+      image: ""
     })
+
     const addDataProduct = JSON.parse(localStorage.getItem("DATA_PRODUCT"))
   
     const handleOnChange = (e) => {
@@ -68,12 +70,15 @@ function AddProduct() {
         products.push(DataProduct)
         localStorage.setItem("DATA_PRODUCT", JSON.stringify(products))
       } else {
-        addDataProduct.forEach((element) => {
-          products.push(element)
-        })
+        for (let i = 0; i < addDataProduct.length; i++) {
+          products.push(addDataProduct[i])
+        } 
+        DataProduct.id = addDataProduct.length
+        DataProduct.price = parseInt(products.price)
         products.push(DataProduct)
         localStorage.setItem("DATA_PRODUCT", JSON.stringify(products))
       }
+      document.getElementById("addProduct").reset()
     }
   
     return (
@@ -86,14 +91,13 @@ function AddProduct() {
                   Product
                 </Card.Title>
                 <Form
-                  onSubmit={handleOnSubmit}
+                  onSubmit={handleOnSubmit} id="addProduct"
                   className="m-auto mt-3 d-grid gap-2 w-100"
                 >
-                  <Form.Group className="mb-3 " controlId="nameProduct">
+                  <Form.Group className="mb-3 " controlId="title">
                     <Form.Control
                       onChange={handleOnChange}
-                      value={DataProduct.nameProduct}
-                      name="nameProduct"
+                      name="title"
                       style={{
                         border: "2px solid #BD0707",
                         backgroundColor: "#E0C8C840",
@@ -105,18 +109,16 @@ function AddProduct() {
                   <Form.Group className="mb-3" controlId="price">
                     <Form.Control
                       onChange={handleOnChange}
-                      value={DataProduct.price}
                       name="price"
                       style={{ border: "2px solid #BD0707" }}
                       type="text"
                       placeholder="Price"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3" controlId="imgProduct">
+                  <Form.Group className="mb-3" controlId="image">
                     <Form.Control
                       onChange={handleOnChange}
-                      value={DataProduct.imgProduct}
-                      name="imgProduct"
+                      name="image"
                       style={{ border: "2px solid #BD0707" }}
                       type="text"
                       placeholder="Photo Product"
@@ -134,7 +136,7 @@ function AddProduct() {
             </Col>
             <Card.Img
               variant="top"
-              src={DataProduct.imgProduct}
+              src={DataProduct.image}
               style={style.ImgProduct}
             />
           </Row>

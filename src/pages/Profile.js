@@ -9,6 +9,7 @@ import logo from "../components/assets/images/group.png"
 import barcode from "../components/assets/images/tsbarcode.png"
 
 const Profile = () => {
+
     return (
         <Stack direction="horizontal" gap={3} className={cssModules.poppins}>
             <div className={cssModules.jumboContainer}>

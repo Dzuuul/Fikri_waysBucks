@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Button, Form, Modal, Card } from 'react-bootstrap'
 import cssModules from './assets/css/Global.module.css'
 
-const Login = ({show,Hide,setModalRegisterShow,setModalLoginShow}) => {
+const Login = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
 
   const users = []
   

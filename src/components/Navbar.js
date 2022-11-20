@@ -4,7 +4,7 @@ import group from './assets/images/group.png';
 import Login from './Login';
 import Register from './Register';
 import css from './assets/css/Global.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 // images
@@ -21,9 +21,11 @@ const NavbarBucks = () => {
 
   const loginData = JSON.parse(localStorage.getItem("LOGIN_DATA"))
 
+  const navigate = useNavigate()
+
   const Logout = () => {
     localStorage.removeItem("LOGIN_DATA")
-    setTimeout(window.location.reload(), 500)
+    navigate("/")
   }
 
   
@@ -56,16 +58,18 @@ const NavbarBucks = () => {
             <Image src={chartIcon}/>
             </Link>
             </div>
+            {/* dropdown user */}
             <div>
             <OverlayTrigger
               trigger="click"
+              rootClose
               key='bottom'
               placement='bottom-end'
               overlay={
               <Popover id={`popover-positioned-bottom`}>
                   <Popover.Body className={css.poppins}>
                   <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
-                  <Image src={profileIconPop} /> <Link to="/profile" style={{textDecoration: "none", color: "black"}} > <span className='fw-bold ps-3 fs-5'> Profile </span></Link>
+                  <Link to="/profile" style={{textDecoration: "none", color: "black"}} ><Image src={profileIconPop} /><span className='fw-bold ps-3 fs-5 btn'> Profile </span></Link>
                   </div>
                   <div className='position-relative'>
                   <hr/>
@@ -79,6 +83,32 @@ const NavbarBucks = () => {
               <Image className='btn' src={profileIcon} style={{border: "none"}} />
             </OverlayTrigger>
             </div>
+            {/* dropdown admin */}
+            {/* <div>
+            <OverlayTrigger
+              trigger="click"
+              rootClose
+              key='bottom'
+              placement='bottom-end'
+              overlay={
+              <Popover id={`popover-positioned-bottom`}>
+                  <Popover.Body className={css.poppins}>
+                  <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
+                  <Link to="/profile" style={{textDecoration: "none", color: "black"}} ><Image src={profileIconPop} /><span className='fw-bold ps-3 fs-5'> Profile </span></Link>
+                  </div>
+                  <div className='position-relative'>
+                  <hr/>
+                  </div>
+                  <div className='pt-2 pb-2 ps-2 pe-5'>
+                  <Image src={logoutIcon} /> <span className='fw-bold ps-3 fs-5 btn' onClick={Logout}> Logout </span>
+                  </div>
+                  </Popover.Body>
+                  </Popover>
+                  }>
+              <Image className='btn' src={profileIcon} style={{border: "none"}} />
+            </OverlayTrigger>
+            </div> */}
+
             </>
             )
           }

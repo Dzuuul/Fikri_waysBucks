@@ -15,43 +15,43 @@ const Topping = [
       title : "Bubble Tea Gelatin"
     },
     {
-      id : 2,
+      id : 1,
       image : top2,
       price : 1000,
       title : "Manggo"
     },
     {
-      id : 3,
+      id : 2,
       image : top3,
       price : 1000,
       title : "Green Coconut"
     },
     {
-      id : 4,
+      id : 3,
       image : top4,
       price : 1000,
       title : "Boba Manggo"
     },
     {
-      id : 5,
+      id : 4,
       image : top5,
       price : 1000,
       title : "Bill Berry Boba"
     },
     {
-      id : 6,
+      id : 5,
       image : top6,
       price : 1000,
       title : "Kiwi Popping Pearl"
     },
     {
-      id : 7,
+      id : 6,
       image : top7,
       price : 1000,
       title : "Matcha Cantaloupe"
     },
     {
-      id : 8,
+      id : 7,
       image : top8,
       price : 1000,
       title : "Strawberry Popping"

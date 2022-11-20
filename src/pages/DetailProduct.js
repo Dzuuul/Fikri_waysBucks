@@ -1,16 +1,9 @@
 import { Button, Card, Col, Container, Row, Badge } from "react-bootstrap";
-import Toping1 from "../components/assets/images/Toping1.png";
-import Toping2 from "../components/assets/images/Toping2.png";
-import Toping3 from "../components/assets/images/Toping3.png";
-import Toping4 from "../components/assets/images/Toping4.png";
-import Toping5 from "../components/assets/images/Toping5.png";
-import Toping6 from "../components/assets/images/Toping6.png";
-import Toping7 from "../components/assets/images/Toping7.png";
-import Toping8 from "../components/assets/images/Toping8.png";
-import Approve from "../components/assets/images/Approve.png";
 import { useParams } from "react-router-dom";
 import Products from "../components/Products";
 import css from "../components/assets/css/Global.module.css"
+import Topping from "../components/Topping";
+import ToppingList from "../components/SelectTopping";
 
 const style = {
   card: {
@@ -54,7 +47,9 @@ const style = {
   bgColor: {
     backgroundColor: "#BD0707",
   },
+  
 };
+
 function DetailProduct() {
   const { id } = useParams();
 
@@ -76,130 +71,9 @@ function DetailProduct() {
                 <Card.Text className="m-2" style={style.cardText}><b>Toping</b></Card.Text>
                 <Row xs="4" className="m-2">
                 {/* Toping 1 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping1} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0 border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-                  <Card.Text style={style.textToping}>
-                    Bubble Tea Gelatin
-                  </Card.Text>
-                </div>
-
-                {/* Toping 2 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping2} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-                  <Card.Text style={style.textToping}>Manggo</Card.Text>
-                </div>
-
-                {/* Toping 3 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping3} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-
-                  <Card.Text style={style.textToping}>Green Coconut</Card.Text>
-                </div>
-
-                {/* Toping 4 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping4} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-                  <Card.Text style={style.textToping}>Boba Manggo</Card.Text>
-                </div>
-              </Row>
-              <Row xs="4" className="m-2">
-                {/* Toping 5 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping5} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-                  <Card.Text style={style.textToping}>
-                    Bill Berry Boba
-                  </Card.Text>
-                </div>
-                {/* Toping 6 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping6} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-
-                  <Card.Text style={style.textToping}>
-                    Kiwi Popping Pearl
-                  </Card.Text>
-                </div>
-
-                {/* Toping 7 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping7} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-
-                  <Card.Text style={style.textToping}>
-                    Matcha Cantaloupe
-                  </Card.Text>
-                </div>
-
-                {/* Toping 8 */}
-                <div>
-                  <div className="position-relative">
-                    <Card.Img style={style.imgToping} src={Toping8} />
-                    <Badge
-                      style={{ top: "10%", left: "65%" }}
-                      className="position-absolute translate-middle bg-success p-0   border border-light rounded-circle"
-                    >
-                      <img style={{ width: "20px" }} src={Approve} alt="" />
-                    </Badge>
-                  </div>
-
-                  <Card.Text style={style.textToping}>
-                    Strawberry Popping
-                  </Card.Text>
-                </div>
+                {Topping.map((Topping) => (
+                  <ToppingList key={Topping.id} id={Topping.id} title={Topping.title} image={Topping.image} price={Topping.price} />
+                  ))}
               </Row>
               </div>
               <Row className="m-4">
@@ -212,7 +86,7 @@ function DetailProduct() {
               </Row>
               <Button
                 className="w-100"
-                variant="outline-light"
+                variant="danger"
                 style={style.bgColor}
               >
                 Add Cart
