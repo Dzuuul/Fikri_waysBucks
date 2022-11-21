@@ -61,7 +61,8 @@ const NavbarBucks = () => {
             {/* dropdown user */}
             <div>
             <OverlayTrigger
-              trigger="click"
+              trigger="hover"
+              delay={{ show: 250, hide: 1200 }}
               rootClose
               key='bottom'
               placement='bottom-end'

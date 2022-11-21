@@ -20,6 +20,7 @@ const Login = ({show,Hide, setModalRegisterShow,setModalLoginShow}) => {
         users.push(userLogin)
         localStorage.setItem("LOGIN_DATA", JSON.stringify(users))
         setModalLoginShow(false)
+        window.location.reload(true)
       } else {
         console.log(users)
       }
