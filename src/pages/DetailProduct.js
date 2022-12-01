@@ -1,7 +1,15 @@
-import { Button, Card, Col, Container, Row, Badge } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Row,
+  Badge,
+  Form,
+} from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Products from "../components/Products";
-import css from "../components/assets/css/Global.module.css"
+import css from "../components/assets/css/Global.module.css";
 import Topping from "../components/Topping";
 import ToppingList from "../components/SelectTopping";
 
@@ -10,11 +18,11 @@ const style = {
     width: "100%",
     height: "500px",
     position: "relative",
-    border: "none"
+    border: "none",
   },
 
   imgProduct: {
-    width: "30%"
+    width: "30%",
   },
 
   cardBody: {
@@ -47,7 +55,6 @@ const style = {
   bgColor: {
     backgroundColor: "#BD0707",
   },
-  
 };
 
 function DetailProduct() {
@@ -68,13 +75,23 @@ function DetailProduct() {
                 Rp. {Products[id].price}
               </Card.Text>
               <div className="mt-5">
-                <Card.Text className="m-2" style={style.cardText}><b>Toping</b></Card.Text>
+                <Card.Text className="m-2" style={style.cardText}>
+                  <b>Toping</b>
+                </Card.Text>
                 <Row xs="4" className="m-2">
-                {/* Toping 1 */}
-                {Topping.map((Topping) => (
-                  <ToppingList key={Topping.id} id={Topping.id} title={Topping.title} image={Topping.image} price={Topping.price} />
-                  ))}
-              </Row>
+                  {/* Toping 1 */}
+
+                    {Topping.map((Topping) => (
+                      <ToppingList
+                        key={Topping.id}
+                        id={Topping.id}
+                        title={Topping.title}
+                        image={Topping.image}
+                        price={Topping.price}
+                      />
+                    ))}
+
+                </Row>
               </div>
               <Row className="m-4">
                 <Col xs={12} md={10}>
@@ -84,11 +101,7 @@ function DetailProduct() {
                   <Card.Text style={style.cardText}>Rp.27.000</Card.Text>
                 </Col>
               </Row>
-              <Button
-                className="w-100"
-                variant="danger"
-                style={style.bgColor}
-              >
+              <Button className="w-100" variant="danger" style={style.bgColor}>
                 Add Cart
               </Button>
             </Col>

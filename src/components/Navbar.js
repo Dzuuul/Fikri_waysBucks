@@ -14,6 +14,9 @@ import chartIcon from './assets/images/chart.png'
 //popover icon
 import profileIconPop from './assets/images/profileDropdownIcon.png'
 import logoutIcon from './assets/images/logoutIcon.png'
+import addProductIcon from './assets/images/addproduct.png'
+import addToppingIcon from './assets/images/addtopping.png'
+
 
 const NavbarBucks = () => {
   const [modalRegisterShow, setModalRegisterShow] = React.useState(false);
@@ -51,14 +54,14 @@ const NavbarBucks = () => {
             <Login show={modalLoginShow} Hide={()=> setModalLoginShow(false)} setModalLoginShow={setModalLoginShow} setModalRegisterShow={setModalRegisterShow} />
             </div>
             </>
-          ) : (
+          ) : ( 
             <>
-            <div className='px-3'>
+            {/* user navbar */}
+            {/* <div className='px-3'>
             <Link to="/cart">
             <Image src={chartIcon}/>
             </Link>
             </div>
-            {/* dropdown user */}
             <div>
             <OverlayTrigger
               trigger="hover"
@@ -68,39 +71,14 @@ const NavbarBucks = () => {
               placement='bottom-end'
               overlay={
               <Popover id={`popover-positioned-bottom`}>
-                  <Popover.Body className={css.poppins}>
+                  <Popover.Body className={css.poppins} style={{width: "110%"}}>
                   <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
                   <Link to="/profile" style={{textDecoration: "none", color: "black"}} ><Image src={profileIconPop} /><span className='fw-bold ps-3 fs-5 btn'> Profile </span></Link>
                   </div>
                   <div className='position-relative'>
-                  <hr/>
+                  <div style={{width: "90%", backgroundColor: "black", height: "1px" }} />
                   </div>
-                  <div className='pt-2 pb-2 ps-2 pe-5'>
-                  <Image src={logoutIcon} /> <span className='fw-bold ps-3 fs-5 btn' onClick={Logout}> Logout </span>
-                  </div>
-                  </Popover.Body>
-                  </Popover>
-                  }>
-              <Image className='btn' src={profileIcon} style={{border: "none"}} />
-            </OverlayTrigger>
-            </div>
-            {/* dropdown admin */}
-            {/* <div>
-            <OverlayTrigger
-              trigger="click"
-              rootClose
-              key='bottom'
-              placement='bottom-end'
-              overlay={
-              <Popover id={`popover-positioned-bottom`}>
-                  <Popover.Body className={css.poppins}>
-                  <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
-                  <Link to="/profile" style={{textDecoration: "none", color: "black"}} ><Image src={profileIconPop} /><span className='fw-bold ps-3 fs-5'> Profile </span></Link>
-                  </div>
-                  <div className='position-relative'>
-                  <hr/>
-                  </div>
-                  <div className='pt-2 pb-2 ps-2 pe-5'>
+                  <div className='pt-3 pb-2 ps-2 pe-5'>
                   <Image src={logoutIcon} /> <span className='fw-bold ps-3 fs-5 btn' onClick={Logout}> Logout </span>
                   </div>
                   </Popover.Body>
@@ -109,8 +87,40 @@ const NavbarBucks = () => {
               <Image className='btn' src={profileIcon} style={{border: "none"}} />
             </OverlayTrigger>
             </div> */}
-
+            
+          
+            
+            {/* admin navbar */}
+            <div>
+            <OverlayTrigger
+              trigger="hover"
+              delay={{ show: 250, hide: 1200 }}
+              rootClose
+              key='bottom'
+              placement='bottom-end'
+              overlay={
+              <Popover id={`popover-positioned-bottom`}>
+                  <Popover.Body className={css.poppins} style={{width: "110%"}}>
+                  <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
+                  <div onClick={() => {navigate('/add-product')}} style={{textDecoration: "none", color: "black"}} ><Image src={addProductIcon} /><span className='fw-bold ps-3 fs-5'> Add Product </span></div>
+                  </div>
+                  <div className='mb-2 pt-2 ps-2 pb-2 pe-5'>
+                  <div onClick={() => {navigate('/add-topping')}} style={{textDecoration: "none", color: "black"}} ><Image src={addToppingIcon} /><span className='fw-bold ps-3 fs-5'> Add Topping </span></div>
+                  </div>
+                  <div className='position-relative'>
+                  <div style={{width: "90%", backgroundColor: "black", height: "1px" }} />
+                  </div>
+                  <div className='pt-3 pb-2 ps-2 pe-5'>
+                  <Image src={logoutIcon} /> <span className='fw-bold ps-3 fs-5 btn' onClick={Logout}> Logout </span>
+                  </div>
+                  </Popover.Body>
+                  </Popover>
+                  }>
+              <Image className='btn' src={profileIcon} style={{border: "none"}} />
+            </OverlayTrigger>
+            </div>
             </>
+          
             )
           }
 

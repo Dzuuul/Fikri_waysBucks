@@ -9,6 +9,7 @@ import DetailProduct from "./pages/DetailProduct";
 import Income from "./pages/IncomeTransaction";
 import AddToping from "./pages/AddTopping";
 import AddProduct from "./pages/AddProduct";
+// import UserAdmin from "./components/UserAdmin";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <Router>
       <div>
         <NavbarBucks />
+        {/* <UserAdmin /> */}
       </div>
 
       <Routes>
